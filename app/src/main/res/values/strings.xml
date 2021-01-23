@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MaterialDesignIntro</string>
+    <string name="titulo_app_bar">Petagram</string>
 </resources>
