@@ -9,7 +9,8 @@
     android:orientation="vertical">
 
     <include layout="@layout/toolbar"
-        android:id="@+id/miActionBar"></include>
+        android:id="@+id/miActionBar">
+    </include>
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rcvMascotas"
