@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:elevation="@dimen/elevacion_actionBar"
+    android:elevation="@dimen/elevation_actionBar"
     android:background="@color/colorPrimary">
 
     <RelativeLayout
