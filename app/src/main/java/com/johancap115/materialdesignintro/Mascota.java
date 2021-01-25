@@ -34,6 +34,6 @@ public class Mascota {
     }
 
     public void setRaiting(int raiting) {
-        this.raiting = raiting;
+        this.raiting += raiting;
     }
 }
