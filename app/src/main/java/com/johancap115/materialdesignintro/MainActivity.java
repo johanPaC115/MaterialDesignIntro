@@ -1,15 +1,18 @@
 package com.johancap115.materialdesignintro;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,31 +20,67 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements  ItemListener{
 
-    ArrayList<Mascota> pets;
+    ArrayList<Mascota> pets, favoritos=null;
     private RecyclerView listaMascotas;
     FloatingActionButton FAB;
-    TextView raiting;
     MascotaAdaptador adaptador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+
+        // Remueve el titulo por defecto de la App
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Obtiene Acceso a Titulo Personalizado
+        TextView mTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
+
         FAB = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        raiting = (TextView) findViewById(R.id.tvRaitingPet) ;
-
-
-
 
         listaMascotas = (RecyclerView) findViewById(R.id.rcvMascotas);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(linearLayoutManager);
-        if (pets ==null){
-            inicializarlistaMascotas();
-        }
-
+        inicializarlistaMascotas();
         inicializarAdaptador();
+    }
+
+    /*Actualiza el Toolbar con el menu de accion peronalizado
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    /*Acciones del Action view del menu
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.action_favorite:
+                if (favoritos==null){
+                    Toast.makeText(this, getResources().getString(R.string.sinFavoritos),Toast.LENGTH_SHORT).show();
+                }else {
+                    //Envio el objeto contacto a la siguiente Activity (ConfirmarDatos)
+                    Intent intent = new Intent(MainActivity.this, favoritos.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(getResources().getString(R.string.favoritos), favoritos);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    //finish();
+                }
+               // Toast.makeText(this, "click en Favoritos", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_settings:
+                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void inicializarAdaptador() {
@@ -89,8 +128,36 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
 
     @Override
     public void onClick(Mascota pet) {
-        pet.setRaiting(1);
-        Toast.makeText(this, "te gusto: "+pet.getNombre(),Toast.LENGTH_SHORT).show();
+        if (pet.isLike()){
+            Toast.makeText(this,getResources().getString(R.string.likeTrue)+pet.getNombre(),Toast.LENGTH_SHORT).show();
+        }else {
+            pet.setRaiting(1);
+            pet.setLike(true);
+            Toast.makeText(this, getResources().getString(R.string.likeOn) +pet.getNombre(),Toast.LENGTH_SHORT).show();
+            this.addFavoritos(pet);
+            recagarAdaptador();
+        }
+    }
+    /*Metodo para ordenar la  lista
+    private  void ordenarLista(){
+        Collections.sort(pets, new Comparator<Mascota>() {
+            @Override
+            public int compare(Mascota o1, Mascota o2) {
+                return new Integer(o2.getRaiting()).compareTo(new Integer(o1.getRaiting()));
+            }
+        });
+    }
+
+    public void ordenarLista(View view) {
+        this.ordenarLista();
         recagarAdaptador();
+    }*/
+
+    private void addFavoritos(Mascota favPet){
+        if (favoritos==null) {
+            favoritos = new ArrayList<Mascota>();
+            favoritos.add(favPet);
+        }else
+            favoritos.add(favPet);
     }
 }
