@@ -8,11 +8,13 @@ public class Mascota implements Serializable {
     private int foto;
     private String nombre;
     private int raiting;
+    private boolean like;
 
     public Mascota(int foto, String nombre) {
         this.foto = foto;
         this.nombre = nombre;
         this.raiting = 0;
+        this.like = false;
     }
 
     public int getFoto() {
@@ -37,5 +39,13 @@ public class Mascota implements Serializable {
 
     public void setRaiting(int raiting) {
         this.raiting += raiting;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
     }
 }
