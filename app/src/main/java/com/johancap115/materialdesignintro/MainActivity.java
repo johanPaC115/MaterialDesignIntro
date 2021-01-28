@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
             pet.setRaiting(1);
             pet.setLike(true);
             Toast.makeText(this, getResources().getString(R.string.likeOn) +pet.getNombre(),Toast.LENGTH_SHORT).show();
-            this.addFavoritos(pet);
+            this.addLastFiveFavoritos(pet);
             recagarAdaptador();
         }
     }
@@ -153,11 +153,13 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
         recagarAdaptador();
     }*/
 
-    private void addFavoritos(Mascota favPet){
-        if (favoritos==null) {
+    private void addLastFiveFavoritos(Mascota favPet) {
+        if (favoritos == null) {
             favoritos = new ArrayList<Mascota>();
             favoritos.add(favPet);
-        }else
+        } else if (favoritos.size() == 5) {
+            favoritos.remove(0);
             favoritos.add(favPet);
+        } else favoritos.add(favPet);
     }
 }
