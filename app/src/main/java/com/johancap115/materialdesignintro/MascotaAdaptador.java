@@ -35,6 +35,11 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgFotoCV.setImageResource(mascota.getFoto());
         mascotaViewHolder.txvNombreCV.setText(mascota.getNombre());
         mascotaViewHolder.txvRaitingCV.setText(String.valueOf(mascota.getRaiting()));
+        if (!mascota.isLike()) {
+            mascotaViewHolder.imgRaitingCV.setImageResource(R.drawable.icons8_hueso);
+        } else {
+            mascotaViewHolder.imgRaitingCV.setImageResource(R.drawable.icons8_hueso_red);
+        }
 
         mascotaViewHolder.imgRaitingCV.setOnClickListener(new View.OnClickListener() {
             @Override
