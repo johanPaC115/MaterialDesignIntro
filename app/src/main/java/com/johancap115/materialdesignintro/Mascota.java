@@ -2,7 +2,9 @@ package com.johancap115.materialdesignintro;
 
 import android.content.Intent;
 
-public class Mascota {
+import java.io.Serializable;
+
+public class Mascota implements Serializable {
     private int foto;
     private String nombre;
     private int raiting;
