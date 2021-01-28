@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">MaterialDesignIntro</string>
+    <string name="app_name">Petagram</string>
     <string name="titulo_app_bar">Petagram</string>
     <string name="nombre_pet">Mascota</string>
     <string name="raiting_pet">Raiting</string>
+    <string name="settings">opciones</string>
+    <string name="favoritos">favritos</string>
 </resources>
