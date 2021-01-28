@@ -4,5 +4,8 @@
     <string name="nombre_pet">Mascota</string>
     <string name="raiting_pet">Raiting</string>
     <string name="settings">opciones</string>
-    <string name="favoritos">favritos</string>
+    <string name="favoritos">favoritos</string>
+    <string name="likeTrue">Ya diste me gusta a : \t</string>
+    <string name="likeOn">Te gustó: \t</string>
+    <string name="sinFavoritos">No Tienes Favoritos Aún</string>
 </resources>
