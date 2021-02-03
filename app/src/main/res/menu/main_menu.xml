@@ -9,7 +9,10 @@
         android:title="@string/favoritos" />
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
-        app:showAsAction="withText"
-        android:title="@string/settings" />
+    <item
+        android:id="@+id/item_contacto"
+        android:title="@string/contacto" />
+    <item
+        android:id="@+id/item_about"
+        android:title="@string/about" />
 </menu>
