@@ -56,28 +56,30 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     /*Acciones del Action view del menu
      */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.action_favorite:
-                if (favoritos==null){
-                    Toast.makeText(this, getResources().getString(R.string.sinFavoritos),Toast.LENGTH_SHORT).show();
-                }else {
+                if (favoritos == null) {
+                    Toast.makeText(this, getResources().getString(R.string.sinFavoritos), Toast.LENGTH_SHORT).show();
+                } else {
                     //Envio el objeto contacto a la siguiente Activity (ConfirmarDatos)
                     Intent intent = new Intent(MainActivity.this, favoritos.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(getResources().getString(R.string.favoritos), favoritos);
                     intent.putExtras(bundle);
                     startActivity(intent);
-                    //finish();
                 }
-               // Toast.makeText(this, "click en Favoritos", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_settings:
-                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+            case R.id.item_contacto:
+                Toast.makeText(this, R.string.contacto, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item_about:
+                Toast.makeText(this, R.string.about, Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
