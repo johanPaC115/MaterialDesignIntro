@@ -8,7 +8,17 @@
     <string name="likeTrue">Ya diste me gusta a : \t</string>
     <string name="likeOn">Te gustó: \t</string>
     <string name="sinFavoritos">No Tienes Favoritos Aún</string>
-    <!-- Settings-->
+    <!-- about-->
     <string name="contacto">Contacto</string>
     <string name="about">Acerca de</string>
+    <string name="titulo_desarrollo">Desarrollado por:</string>
+    <string name="twitter"> \@johancap115</string>
+    <string name="github">github.com/johanPaC115</string>
+    <string name="nombre_desarrollador">Johan Carreño</string>
+    <!-- Contacto-->
+    <string name="nombre_contacto">Nombre</string>
+    <string name="email">Correo Electronico</string>
+    <string name="mensaje">Mensaje</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
