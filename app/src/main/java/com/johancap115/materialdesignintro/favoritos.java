@@ -7,12 +7,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.johancap115.materialdesignintro.adaptador.MascotaAdaptador;
+import com.johancap115.materialdesignintro.interfaz.ItemListener;
+import com.johancap115.materialdesignintro.pojo.Mascota;
 
 import java.util.ArrayList;
 

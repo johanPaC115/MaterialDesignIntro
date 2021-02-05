@@ -1,4 +1,4 @@
-package com.johancap115.materialdesignintro;
+package com.johancap115.materialdesignintro.adaptador;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.johancap115.materialdesignintro.interfaz.ItemListener;
+import com.johancap115.materialdesignintro.pojo.Mascota;
+import com.johancap115.materialdesignintro.R;
 
 import java.util.ArrayList;
 

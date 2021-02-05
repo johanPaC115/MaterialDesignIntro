@@ -1,4 +1,4 @@
-package com.johancap115.materialdesignintro;
+package com.johancap115.materialdesignintro.pojo;
 
 import android.content.Intent;
 
