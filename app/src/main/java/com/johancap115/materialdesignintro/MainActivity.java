@@ -3,50 +3,73 @@ package com.johancap115.materialdesignintro;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+import com.johancap115.materialdesignintro.adaptador.MascotaAdaptador;
+import com.johancap115.materialdesignintro.adaptador.PageAdapter;
+import com.johancap115.materialdesignintro.fragment.PerfilPetFragment;
+import com.johancap115.materialdesignintro.fragment.RecyclerviewFragment;
+import com.johancap115.materialdesignintro.interfaz.ItemListener;
+import com.johancap115.materialdesignintro.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements  ItemListener{
+public class MainActivity extends AppCompatActivity  {
 
-    ArrayList<Mascota> pets, favoritos=null;
-    private RecyclerView listaMascotas;
+
+    private ArrayList<Mascota> favoritos=null;
     FloatingActionButton FAB;
-    MascotaAdaptador adaptador;
+
+    private Toolbar myToolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-
-
-        // Remueve el titulo por defecto de la App
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        // Obtiene Acceso a Titulo Personalizado
-        TextView mTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
-
+        myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
         FAB = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+       setUpViewpager();
+       
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rcvMascotas);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(linearLayoutManager);
-        inicializarlistaMascotas();
-        inicializarAdaptador();
+        if (myToolbar != null){
+            setSupportActionBar(myToolbar);
+            // Remueve el titulo por defecto de la App
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            // Obtiene Acceso a Titulo Personalizado
+            TextView mTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
+        }
+
+    }
+
+    private ArrayList<Fragment> addFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerviewFragment());
+        fragments.add(new PerfilPetFragment());
+        return fragments;
+    }
+
+    private void setUpViewpager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), addFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_pet_light);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_profile_pet_light);
     }
 
     /*Actualiza el Toolbar con el menu de accion peronalizado
@@ -58,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
     }
 
     /*Acciones del Action view del menu
-     */
+    */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -76,92 +99,33 @@ public class MainActivity extends AppCompatActivity implements  ItemListener{
                 }
                 break;
             case R.id.item_contacto:
-                Toast.makeText(this, R.string.contacto, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, R.string.contacto, Toast.LENGTH_SHORT).show();
+                Intent intentContacto = new Intent(MainActivity.this, Contacto.class);
+                startActivity(intentContacto);
                 break;
             case R.id.item_about:
-                Toast.makeText(this, R.string.about, Toast.LENGTH_SHORT).show();
+                Intent intentAbout = new Intent(MainActivity.this, AboutDesarrollador.class);
+                startActivity(intentAbout);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void inicializarAdaptador() {
-        adaptador = new MascotaAdaptador(pets, this);
-        listaMascotas.setAdapter(adaptador);
-    }
-
-    private void recagarAdaptador(){
-        adaptador.notifyDataSetChanged();
-    }
-
-    private void inicializarlistaMascotas() {
-        pets = new ArrayList<Mascota>();
-
-        pets.add(new Mascota(R.drawable.cerdito1, "peggy"));
-        pets.add(new Mascota(R.drawable.cerdito2, "porky"));
-        pets.add(new Mascota(R.drawable.cerdito3, "pira"));
-        pets.add(new Mascota(R.drawable.cerdito4, "qorqui"));
-        pets.add(new Mascota(R.drawable.cerdito5, "floki"));
-        pets.add(new Mascota(R.drawable.conejito1, "bonny"));
-        pets.add(new Mascota(R.drawable.conejito2, "brincos"));
-        pets.add(new Mascota(R.drawable.conejito3, "orejas"));
-        pets.add(new Mascota(R.drawable.conejito4, "bugs"));
-        pets.add(new Mascota(R.drawable.conejito5, "barry"));
-        pets.add(new Mascota(R.drawable.perrito1, "brunno"));
-        pets.add(new Mascota(R.drawable.perrito2, "pluto"));
-        pets.add(new Mascota(R.drawable.perrito3, "spike"));
-        pets.add(new Mascota(R.drawable.perrito4, "yanquee"));
-        pets.add(new Mascota(R.drawable.perrito5, "firulais"));
-        pets.add(new Mascota(R.drawable.gatito1, "zeus"));
-        pets.add(new Mascota(R.drawable.gatito2, "tommy"));
-        pets.add(new Mascota(R.drawable.gatito3, "tito"));
-        pets.add(new Mascota(R.drawable.gatito4, "muchin"));
-        pets.add(new Mascota(R.drawable.gatito5, "toto"));
-        
-        calificarMascotas();
-    }
-
-    private void calificarMascotas() {
-        for (Mascota mascotas: pets) {
-            int numeroAleatorio = (int) (Math.random()*25+1);
-            mascotas.setRaiting(numeroAleatorio);
-        }
-    }
-
-    @Override
-    public void onClick(Mascota pet) {
-        if (pet.isLike()){
-            Toast.makeText(this,getResources().getString(R.string.likeTrue)+pet.getNombre(),Toast.LENGTH_SHORT).show();
-        }else {
-            pet.setRaiting(1);
-            pet.setLike(true);
-            Toast.makeText(this, getResources().getString(R.string.likeOn) +pet.getNombre(),Toast.LENGTH_SHORT).show();
-            this.addLastFiveFavoritos(pet);
-            recagarAdaptador();
-        }
-    }
-    /*Metodo para ordenar la  lista
-    private  void ordenarLista(){
-        Collections.sort(pets, new Comparator<Mascota>() {
-            @Override
-            public int compare(Mascota o1, Mascota o2) {
-                return new Integer(o2.getRaiting()).compareTo(new Integer(o1.getRaiting()));
-            }
-        });
-    }
-
-    public void ordenarLista(View view) {
-        this.ordenarLista();
-        recagarAdaptador();
-    }*/
-
-    private void addLastFiveFavoritos(Mascota favPet) {
-        if (favoritos == null) {
+    public void getFavoritos() {
+      /*  if (favoritos == null) {
             favoritos = new ArrayList<Mascota>();
             favoritos.add(favPet);
         } else if (favoritos.size() == 5) {
             favoritos.remove(0);
             favoritos.add(favPet);
         } else favoritos.add(favPet);
+       */
+
+        RecyclerviewFragment fragment = (RecyclerviewFragment) getSupportFragmentManager().findFragmentById(R.id.viewPager);
+        favoritos = fragment.getFavoritos();;
+
     }
+
+
+
 }
