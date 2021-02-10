@@ -27,9 +27,11 @@ FRAGMENTS
 A partir de la siguiente imagen de maqueta: 
 
   1. Modulariza el proyecto anterior en Fragments para que estos puedan ser mostrados en un ViewPager.
+  
   <img src="assets/Semana4/modulo-5-y-6_2.png" width="230" height="438"> API19<img src="assets/Semana4/Api 19/screenshot-2.png" width="230" height="438"> API30<img src="assets/Semana4/Api 30/Screenshot_2.png" width="230" height="438"> 
   
   <img src="assets/Semana4/modulo-5-y-6_3.png" width="230" height="438"> API19<img src="assets/Semana4/Api 19/screenshot-3.png" width="230" height="438"> API30<img src="assets/Semana4/Api 30/Screenshot_3.png" width="230" height="438"> 
+  
   2. Crea un Fragment Adicional que muestre el perfil de nuestra mascota. Tendrá su foto de perfil, 
   su nombre y un RecyclerView en donde se mostrarán todas las fotos que ha subido se acomodarán en forma de Grid. 
   3. Cada ítem deberá contener la foto y la cantidad de raits que se le han dado representado por huesos. 
