@@ -7,11 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.johancap115.materialdesignintro.adaptador.MascotaAdaptador;
 import com.johancap115.materialdesignintro.interfaz.ItemListener;
@@ -85,10 +85,12 @@ public class favoritos extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_contacto:
-                Toast.makeText(this, R.string.contacto, Toast.LENGTH_SHORT).show();
+                Intent intentContacto = new Intent(this, Contacto.class);
+                startActivity(intentContacto);
                 break;
             case R.id.item_about:
-                Toast.makeText(this, R.string.about, Toast.LENGTH_SHORT).show();
+                Intent intentAbout = new Intent(this, AboutDesarrollador.class);
+                startActivity(intentAbout);
                 break;
         }
         return super.onOptionsItemSelected(item);
