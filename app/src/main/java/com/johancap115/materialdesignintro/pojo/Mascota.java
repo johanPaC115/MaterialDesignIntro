@@ -1,7 +1,5 @@
 package com.johancap115.materialdesignintro.pojo;
 
-import android.content.Intent;
-
 import java.io.Serializable;
 
 public class Mascota implements Serializable {

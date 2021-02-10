@@ -5,17 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.johancap115.materialdesignintro.interfaz.ItemListener;
 import com.johancap115.materialdesignintro.pojo.Mascota;
 import com.johancap115.materialdesignintro.R;
 
 import java.util.ArrayList;
 
-public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder>{
+public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
 
     ArrayList<Mascota> mascotas;
     ItemListener itemListener;
@@ -58,17 +56,17 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         return mascotas.size();
     }
 
-    public static class MascotaViewHolder extends RecyclerView.ViewHolder{
+    public static class MascotaViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView imgFotoCV;
-        private TextView txvNombreCV;
-        private  TextView txvRaitingCV;
-        private ImageView imgRaitingCV;
+        private final ImageView imgFotoCV;
+        private final TextView txvNombreCV;
+        private final TextView txvRaitingCV;
+        private final ImageView imgRaitingCV;
 
         public MascotaViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFotoCV    = (ImageView) itemView.findViewById(R.id.imgPet);
-            txvNombreCV  = (TextView) itemView.findViewById(R.id.tvNpmbrePet);
+            imgFotoCV = (ImageView) itemView.findViewById(R.id.imgPet);
+            txvNombreCV = (TextView) itemView.findViewById(R.id.tvNpmbrePet);
             txvRaitingCV = (TextView) itemView.findViewById(R.id.tvRaitingPet);
             imgRaitingCV = (ImageView) itemView.findViewById(R.id.imgLikeHueso);
         }
