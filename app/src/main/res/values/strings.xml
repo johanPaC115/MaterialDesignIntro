@@ -12,9 +12,10 @@
     <string name="contacto">Contacto</string>
     <string name="about">Acerca de</string>
     <string name="titulo_desarrollo">Desarrollado por:</string>
-    <string name="twitter"> \@johancap115</string>
-    <string name="github">github.com/johanPaC115</string>
-    <string name="nombre_desarrollador">Johan Carreño</string>
+    <string name="twitter"> \t \@johancap115</string>
+    <string name="github">\t github.com/johanPaC115</string>
+    <string name="nombre_desarrollador">\t Johan Carreño \t</string>
+    <string name="email_desarrollador">\t johancap115@gmail.com</string>
     <!-- Contacto-->
     <string name="nombre_contacto">Nombre</string>
     <string name="email">Correo Electronico</string>
