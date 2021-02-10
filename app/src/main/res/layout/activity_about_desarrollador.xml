@@ -16,20 +16,37 @@
         style="@style/Toolbar.TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_centerHorizontal="true"
         android:text="@string/titulo_desarrollo"
+        />
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/civPerfil"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/perfil_desarrollador"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="2dp"
+        app:civ_shadow="false"
+        app:civ_shadow_radius="10dp"
+        app:civ_shadow_color="@color/colorPrimaryDark"
+        android:layout_below="@+id/tituloDesarrollador"
+        android:layout_centerHorizontal="true"
         />
 
     <TextView
         android:id="@+id/nombreDesarrollador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tituloDesarrollador"
+        android:layout_below="@id/civPerfil"
         android:text="@string/nombre_desarrollador"
         android:layout_centerHorizontal="true"
         android:drawableLeft="@drawable/sharp_pets"
-        android:gravity="center"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/sizeAbout"
+        android:textStyle="bold"
         android:drawableRight="@drawable/sharp_pets"
+
         />
 
     <TextView
@@ -37,15 +54,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nombreDesarrollador"
-        android:text="johancap115@gmail.com"
         android:layout_centerHorizontal="true"
-        />
+        android:drawableLeft="@drawable/icons8_gmail"
+        android:gravity="center_vertical"
+        android:text="@string/email_desarrollador"
+        android:textSize="@dimen/sizeAbout" />
     <TextView
         android:id="@+id/twitterDesarrollador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailDesarrollador"
         android:text="@string/twitter"
+        android:drawableLeft="@drawable/icons8_twitter"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/sizeAbout"
         android:layout_centerHorizontal="true"/>
     <TextView
         android:id="@+id/github"
@@ -53,7 +75,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/twitterDesarrollador"
         android:text="@string/github"
-        android:layout_centerHorizontal="true"/>
+        android:drawableLeft="@drawable/icons8_github"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/sizeAbout"
+        android:layout_centerHorizontal="true"
+        />
 
 
 </RelativeLayout>
