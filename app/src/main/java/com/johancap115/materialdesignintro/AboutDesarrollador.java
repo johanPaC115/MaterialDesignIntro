@@ -1,18 +1,11 @@
 package com.johancap115.materialdesignintro;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.appbar.AppBarLayout;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class AboutDesarrollador extends AppCompatActivity {
 
@@ -23,6 +16,8 @@ public class AboutDesarrollador extends AppCompatActivity {
         setContentView(R.layout.activity_about_desarrollador);
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        CircularImageView circularImageView = findViewById(R.id.civPerfil);
         // Remueve el titulo por defecto de la App
        getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Obtiene Acceso a Titulo Personalizado
