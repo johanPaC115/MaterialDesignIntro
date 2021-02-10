@@ -12,4 +12,6 @@
     <dimen name="nombrePet_size">24sp</dimen>
     <dimen name="width_img">350dp</dimen>
     <dimen name="height_img">200dp</dimen>
+    <dimen name="perfilDimen">120dp</dimen>
+    <dimen name="sizeAbout">22sp</dimen>
 </resources>
