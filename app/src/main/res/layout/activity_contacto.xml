@@ -15,10 +15,12 @@
         android:id="@+id/nombreContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/paddingLeft"
+        android:layout_marginRight="@dimen/paddingRight"
+        android:layout_marginTop="@dimen/paddingLeft"
         android:orientation="horizontal"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@+id/my_toolbar">
 
-        >
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +29,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNombreContacto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -36,9 +39,11 @@
         android:id="@+id/emailContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/paddingLeft"
+        android:layout_marginRight="@dimen/paddingRight"
         android:orientation="horizontal"
-        android:layout_below="@+id/nombreContacto"
-        >
+        android:layout_below="@+id/nombreContacto">
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,18 +52,22 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmailContacto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/mensajeContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/paddingRight"
+        android:layout_marginLeft="@dimen/paddingLeft"
         android:orientation="horizontal"
-        android:layout_below="@+id/emailContacto"
-        >
+        android:layout_below="@+id/emailContacto">
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,13 +76,14 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtMensajeContacto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|textAutoCorrect"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnSiguiente"
+        android:id="@+id/btnEnviarMSN"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
